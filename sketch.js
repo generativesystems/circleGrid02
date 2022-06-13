@@ -1,4 +1,4 @@
-  var frameSize=2;
+  var frameSize=3;
   //the f at the end means it relate to the frame not the inner cells
   var randomXf = [];
   var randomYf = [];
@@ -12,7 +12,7 @@ function setup() {
   
   // Create objects
   for (let k = 0; k < frameSize*frameSize; k++) {
-    let gridSize=int(random(1, 5));
+    let gridSize=int(random(1, 4));
     circleGrids.push(new Circlegrid(gridSize));
     circleGrids[k].prepare();
   }
@@ -37,8 +37,8 @@ function draw() {
 
   background(255);
   
-  let startXf=10;
-  let startYf=10;
+  let startXf=0;
+  let startYf=0;
   for (let j =0; j<randomYf.length; j++) {
     let cellHeightf = map(randomYf[j], 0, randSumYf, 0, windowHeight);
     for (let i =0; i<randomXf.length; i++) {
@@ -68,12 +68,12 @@ class Circlegrid {   //this will need to have a start position specced probably 
   prepare() {
     this.randomX = new Array(this.gridSize);
     for (let i = 0; i < this.randomX.length; i++) {
-      this.randomX[i] = random(0.1, 2);
+      this.randomX[i] = random(0.1, 1);
       this.randSumX += this.randomX[i];
     }
     this.randomY = new Array(this.gridSize);
     for (let i = 0; i < this.randomY.length; i++) {
-      this.randomY[i] = random(0.1, 2);
+      this.randomY[i] = random(0.1, 1);
       this.randSumY += this.randomY[i];
     }
   }
